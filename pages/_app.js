@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import "@fontsource/inter";
+
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { appWithTranslation } from "next-i18next";
 

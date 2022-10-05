@@ -4,5 +4,7 @@
   "articles": "Artigos",
   "projects": "Projetos",
   "contact": "Contato",
-  "rights": "Chakra Templates. Todos os direitos reservados"
+  "rights": "Chakra Templates. Todos os direitos reservados",
+  "colorMode": "Mudar cor do tema",
+  "navigation": "Mudar navegação"
 }

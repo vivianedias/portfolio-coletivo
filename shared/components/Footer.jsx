@@ -9,13 +9,30 @@ import {
 import { useTranslation } from "next-i18next";
 import NextLink from "next/link";
 
+function FooterLinks({ href, children }) {
+  return (
+    <NextLink href={href} passHref>
+      <Link
+        _hover={{
+          color: useColorModeValue("pink.500", "white"),
+        }}
+        color={useColorModeValue("gray.900", "gray.200")}
+      >
+        {children}
+      </Link>
+    </NextLink>
+  );
+}
+
 export default function SmallWithNavigation() {
   const { t } = useTranslation("common");
   const year = new Date().getFullYear();
   return (
     <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
+      bg={useColorModeValue("gray.50", "gray.800")}
+      borderTop={1}
+      borderStyle={"solid"}
+      borderColor={useColorModeValue("gray.200", "gray.900")}
     >
       <Container
         as={Stack}
@@ -27,23 +44,13 @@ export default function SmallWithNavigation() {
         align={{ base: "center", md: "center" }}
       >
         <Stack direction={"row"} spacing={6}>
-          <NextLink href={"/"} passHref>
-            <Link>{t("home")}</Link>
-          </NextLink>
-          <NextLink href={"#about"} passHref>
-            <Link>{t("about")}</Link>
-          </NextLink>
-          <NextLink href={"#articles"} passHref>
-            <Link>{t("articles")}</Link>
-          </NextLink>
-          <NextLink href={"#projects"} passHref>
-            <Link>{t("projects")}</Link>
-          </NextLink>
-          <NextLink href={"#contact"} passHref>
-            <Link>{t("contact")}</Link>
-          </NextLink>
+          <FooterLinks href="/">{t("home")}</FooterLinks>
+          <FooterLinks href="#about">{t("about")}</FooterLinks>
+          <FooterLinks href="#articles">{t("articles")}</FooterLinks>
+          <FooterLinks href="#projects">{t("projects")}</FooterLinks>
+          <FooterLinks href="#contact">{t("contact")}</FooterLinks>
         </Stack>
-        <Text>
+        <Text color={useColorModeValue("gray.600", "gray.200")}>
           © {year} {t("rights")}
         </Text>
       </Container>
