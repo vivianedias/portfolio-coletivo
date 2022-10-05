@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={extendedTheme}>
       <Header />
-      <Flex as="main" flex={1} minHeight={"calc(100vh - 60px - 60px)"} p={10}>
+      <Flex as="main" flex={1} minHeight={"calc(100vh - 60px - 60px)"}>
         <Component {...pageProps} />
       </Flex>
       <Footer />
