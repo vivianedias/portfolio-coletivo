@@ -1,21 +1,52 @@
-import Image from "next/image";
-import styles from "../../styles/Home.module.css";
+import {
+  Box,
+  Container,
+  Stack,
+  Text,
+  Link,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
+import NextLink from "next/link";
 
-function Footer() {
+export default function SmallWithNavigation() {
+  const { t } = useTranslation("common");
+  const year = new Date().getFullYear();
   return (
-    <footer className={styles.footer}>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
+    <Box
+      bg={useColorModeValue("gray.50", "gray.900")}
+      color={useColorModeValue("gray.700", "gray.200")}
+    >
+      <Container
+        as={Stack}
+        maxW={"6xl"}
+        py={4}
+        direction={{ base: "column", md: "row" }}
+        spacing={4}
+        justify={{ base: "center", md: "space-between" }}
+        align={{ base: "center", md: "center" }}
       >
-        Powered by{" "}
-        <span className={styles.logo}>
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </span>
-      </a>
-    </footer>
+        <Stack direction={"row"} spacing={6}>
+          <NextLink href={"/"} passHref>
+            <Link>{t("home")}</Link>
+          </NextLink>
+          <NextLink href={"#about"} passHref>
+            <Link>{t("about")}</Link>
+          </NextLink>
+          <NextLink href={"#articles"} passHref>
+            <Link>{t("articles")}</Link>
+          </NextLink>
+          <NextLink href={"#projects"} passHref>
+            <Link>{t("projects")}</Link>
+          </NextLink>
+          <NextLink href={"#contact"} passHref>
+            <Link>{t("contact")}</Link>
+          </NextLink>
+        </Stack>
+        <Text>
+          © {year} {t("rights")}
+        </Text>
+      </Container>
+    </Box>
   );
 }
-
-export default Footer;
