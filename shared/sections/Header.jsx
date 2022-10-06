@@ -9,15 +9,18 @@ import {
   useColorModeValue,
   useDisclosure,
   useColorMode,
+  Button,
 } from "@chakra-ui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const { t } = useTranslation("common");
+  const router = useRouter();
   return (
     <Box mb={10}>
       <Flex
@@ -50,18 +53,38 @@ export default function WithSubnavigation() {
         >
           <DesktopNav />
         </Flex>
-        <IconButton
-          onClick={toggleColorMode}
-          variant={"ghost"}
-          aria-label={t("colorMode")}
-          icon={
-            colorMode === "light" ? (
-              <Icon as={SunIcon} />
-            ) : (
-              <Icon as={MoonIcon} />
-            )
-          }
-        />
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+        >
+          <IconButton
+            onClick={toggleColorMode}
+            variant={"ghost"}
+            aria-label={t("colorMode")}
+            icon={
+              colorMode === "light" ? (
+                <Icon as={SunIcon} />
+              ) : (
+                <Icon as={MoonIcon} />
+              )
+            }
+          />
+          <Button
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color={"white"}
+            bg={"pink.400"}
+            onClick={() => router.push("#contact")}
+            _hover={{
+              bg: "pink.300",
+            }}
+          >
+            {t("touch")}
+          </Button>
+        </Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -147,9 +170,5 @@ const NAV_ITEMS = (t) => [
   {
     label: t("projects"),
     href: "#projects",
-  },
-  {
-    label: t("contact"),
-    href: "#contact",
   },
 ];
