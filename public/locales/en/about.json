@@ -1,0 +1,11 @@
+{
+  "title": "About us",
+  "camila": {
+    "position": "Developer",
+    "imageAlt": "Profile photo of Camila"
+  },
+  "viviane": {
+    "position": "Senior Developer",
+    "imageAlt": "Profile photo of Viviane"
+  }
+}

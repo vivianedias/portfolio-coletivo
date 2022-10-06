@@ -19,7 +19,7 @@ export default function WithSubnavigation() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { t } = useTranslation("common");
   return (
-    <Box>
+    <Box mb={10}>
       <Flex
         bg={useColorModeValue("gray.50", "gray.800")}
         color={useColorModeValue("gray.600", "gray.50")}

@@ -33,6 +33,7 @@ export default function SmallWithNavigation() {
       borderTop={1}
       borderStyle={"solid"}
       borderColor={useColorModeValue("gray.200", "gray.900")}
+      mt={10}
     >
       <Container
         as={Stack}
