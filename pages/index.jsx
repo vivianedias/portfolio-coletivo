@@ -1,7 +1,6 @@
 import Head from "next/head";
-import { VStack } from "@chakra-ui/react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Hero, About } from "../shared/components";
+import { Hero, About } from "../shared/sections";
 import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {

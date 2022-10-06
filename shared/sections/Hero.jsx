@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
-import SectionLayout from "./SectionLayout";
+import { SectionLayout } from "../components";
 
 export default function Hero() {
   const { t } = useTranslation("hero");

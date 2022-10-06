@@ -3,16 +3,12 @@ import {
   useColorModeValue,
   Heading,
   Text,
-  Button,
-  Icon,
   VStack,
-  Container,
   Stack,
-  Divider,
   Link,
 } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
-import { SectionLayout, Image } from ".";
+import { SectionLayout, Image } from "../components";
 import vivianeImg from "../../public/img/viviane.jpg";
 import camilaImg from "../../public/img/camila.jpg";
 
