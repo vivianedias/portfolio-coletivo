@@ -1,0 +1,132 @@
+import Image from "next/image";
+import {
+  Box,
+  Center,
+  Heading,
+  Text,
+  Stack,
+  Avatar,
+  useColorModeValue,
+  Link,
+  Spinner,
+  Flex,
+} from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
+import useSWRImmutable from "swr/immutable";
+import { SectionLayout } from "../components";
+
+function BlogPostWithImage({
+  cover_image,
+  title,
+  description,
+  url,
+  user: { profile_image, name, username },
+  published_timestamp,
+  reading_time_minutes,
+  t,
+}) {
+  return (
+    <Center as="article">
+      <Box
+        maxW={"360px"}
+        w={"full"}
+        bg={useColorModeValue("white", "gray.900")}
+        boxShadow={"2xl"}
+        rounded={"md"}
+        p={6}
+        overflow={"hidden"}
+      >
+        <Link href={url} isExternal target={"_blank"}>
+          <Box
+            h={"210px"}
+            bg={"gray.100"}
+            mt={-6}
+            mx={-6}
+            mb={6}
+            pos={"relative"}
+          >
+            <Image src={cover_image || ""} layout={"fill"} alt="#" />
+          </Box>
+          <Stack minH={"270px"}>
+            <Text
+              color={"pink.500"}
+              textTransform={"uppercase"}
+              fontWeight={800}
+              fontSize={"sm"}
+              letterSpacing={1.1}
+            >
+              Blog
+            </Text>
+            <Heading
+              color={useColorModeValue("gray.700", "white")}
+              fontSize={"2xl"}
+              fontFamily={"body"}
+            >
+              {title}
+            </Heading>
+            <Text color={"gray.500"}>{description}</Text>
+          </Stack>
+        </Link>
+        <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
+          <Link
+            href={`https://dev.to/${username}`}
+            isExternal
+            target={"_blank"}
+          >
+            <Avatar src={profile_image} alt={t("author")} />
+          </Link>
+          <Stack direction={"column"} spacing={0} fontSize={"sm"}>
+            <Link
+              href={`https://dev.to/${username}`}
+              isExternal
+              target={"_blank"}
+            >
+              <Text fontWeight={600}>{name}</Text>
+            </Link>
+            <Link href={url} isExternal target={"_blank"}>
+              <Text color={"gray.500"}>
+                {published_timestamp} · {reading_time_minutes} {t("read")}
+              </Text>
+            </Link>
+          </Stack>
+        </Stack>
+      </Box>
+    </Center>
+  );
+}
+
+export default function Articles() {
+  const { t } = useTranslation("articles");
+  const { data, error, isValidating } = useSWRImmutable("/api/articles", {
+    shouldRetryOnError: false,
+  });
+
+  return (
+    <SectionLayout mt={20}>
+      <Heading
+        as="h2"
+        textTransform={"uppercase"}
+        color={useColorModeValue("pink.500", "white")}
+        fontSize={"xl"}
+      >
+        {t("title")}
+      </Heading>
+      {isValidating ? (
+        <Center boxSize={"100%"}>
+          <Spinner />
+        </Center>
+      ) : (
+        <Flex
+          flexWrap={"wrap"}
+          justifyContent={"space-around"}
+          alignItems={"flex-start"}
+          gap={10}
+        >
+          {data.map((article) => (
+            <BlogPostWithImage key={article.id} t={t} {...article} />
+          ))}
+        </Flex>
+      )}
+    </SectionLayout>
+  );
+}
