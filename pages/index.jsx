@@ -6,6 +6,7 @@ import { useTranslation } from "next-i18next";
 export async function getStaticProps({ locale }) {
   return {
     props: {
+      locale,
       ...(await serverSideTranslations(locale, [
         "common",
         "hero",
@@ -16,7 +17,7 @@ export async function getStaticProps({ locale }) {
     },
   };
 }
-export default function Home() {
+export default function Home({ locale }) {
   const { t } = useTranslation("home");
 
   return (
@@ -29,7 +30,7 @@ export default function Home() {
 
       <Hero />
       <About />
-      <Articles />
+      <Articles locale={locale} />
     </>
   );
 }

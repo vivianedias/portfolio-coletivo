@@ -1,3 +1,6 @@
+require("dayjs/locale/en");
+require("dayjs/locale/pt-br");
+
 import Image from "next/image";
 import {
   Box,
@@ -14,6 +17,14 @@ import {
 import { useTranslation } from "next-i18next";
 import useSWRImmutable from "swr/immutable";
 import { SectionLayout } from "../components";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+
+dayjs.extend(localizedFormat);
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 function BlogPostWithImage({
   cover_image,
@@ -24,7 +35,9 @@ function BlogPostWithImage({
   published_timestamp,
   reading_time_minutes,
   t,
+  locale,
 }) {
+  const timezone = dayjs.tz.guess();
   return (
     <Center as="article">
       <Box
@@ -85,7 +98,11 @@ function BlogPostWithImage({
             </Link>
             <Link href={url} isExternal target={"_blank"}>
               <Text color={"gray.500"}>
-                {published_timestamp} · {reading_time_minutes} {t("read")}
+                {dayjs(published_timestamp)
+                  .tz(timezone)
+                  .locale(locale)
+                  .format("ll")}{" "}
+                · {reading_time_minutes} {t("read")}
               </Text>
             </Link>
           </Stack>
@@ -95,7 +112,7 @@ function BlogPostWithImage({
   );
 }
 
-export default function Articles() {
+export default function Articles({ locale }) {
   const { t } = useTranslation("articles");
   const { data, error, isValidating } = useSWRImmutable("/api/articles", {
     shouldRetryOnError: false,
@@ -123,7 +140,12 @@ export default function Articles() {
           gap={10}
         >
           {data.map((article) => (
-            <BlogPostWithImage key={article.id} t={t} {...article} />
+            <BlogPostWithImage
+              key={article.id}
+              locale={locale.toLowerCase()}
+              t={t}
+              {...article}
+            />
           ))}
         </Flex>
       )}
