@@ -1,12 +1,14 @@
 const getUrl = (endpoint) => {
   const env = process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV;
+  console.log({ env });
   const urlByEnv = {
     preview: process.env.NEXT_PUBLIC_VERCEL_URL,
     development: process.env.NEXT_PUBLIC_APP_URL,
     production: process.env.NEXT_PUBLIC_APP_URL,
   };
+  console.log({ urlByEnv });
   const url = (env === "development" ? "http://" : "https://") + urlByEnv[env];
-
+  console.log({ url });
   return endpoint[0] === "/" ? url + endpoint : endpoint;
 };
 
@@ -24,7 +26,11 @@ export default async function fetcher(
     config.body = JSON.stringify(body);
   }
 
-  const res = await fetch(getUrl(endpoint), config);
+  const url = getUrl(endpoint);
+
+  console.log({ url });
+
+  const res = await fetch(url, config);
 
   if (!res.ok) {
     const error = new Error(
