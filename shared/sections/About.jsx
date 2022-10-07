@@ -41,7 +41,7 @@ function AboutSection({
           borderColor={useColorModeValue("gray.900", "white")}
           width={"100%"}
         >
-          <Heading as={"h3"} fontSize={"4xl"} fontWeight={500} pt={2}>
+          <Heading as={"p"} fontSize={"4xl"} fontWeight={500} pt={2}>
             {name}
           </Heading>
           <Text fontWeight={400} fontSize={"xl"} pb={2}>
@@ -115,10 +115,7 @@ export default function About() {
   const { t } = useTranslation("about");
 
   return (
-    <SectionLayout
-      justifyContent={"flex-start"}
-      minHeight={"calc(100vh - 100px)"}
-    >
+    <SectionLayout justifyContent={"flex-start"}>
       <Heading
         as="h2"
         textTransform={"uppercase"}
