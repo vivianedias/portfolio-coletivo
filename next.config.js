@@ -11,15 +11,6 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/:path*",
-        headers: [
-          {
-            key: "Access-Control-Allow-Origin",
-            value: "https://medusalab.tech",
-          },
-        ],
-      },
-      {
         source: "/api/:path",
         headers: [
           {
@@ -28,7 +19,7 @@ const nextConfig = {
           },
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://dev.to, https://medusalab.tech",
+            value: "https://dev.to",
           },
         ],
       },
