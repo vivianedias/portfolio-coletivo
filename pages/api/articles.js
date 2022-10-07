@@ -3,6 +3,9 @@ import fetcher from "../../shared/utils/fetcher";
 
 export default async function handler(req, res) {
   try {
+    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+    res.setHeader("Access-Control-Allow-Headers", "api-key");
+
     const vArticles = await fetcher("https://dev.to/api/articles/me", {
       headers: {
         "api-key": process.env.NEXT_PUBLIC_DEV_TO_API_KEY_VIVIANE,
