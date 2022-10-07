@@ -13,15 +13,28 @@ const nextConfig = {
       {
         source: "/:path*",
         headers: [
-          { key: "Access-Control-Allow-Origin", value: "*" },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "https://medusalab.tech",
+          },
+        ],
+      },
+      {
+        source: "/api/:path",
+        headers: [
           {
             key: "Access-Control-Allow-Headers",
             value: "api-key",
           },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "https://dev.to, https://medusalab.tech",
+          },
         ],
       },
     ];
-  }
+  },
+  //
 };
 
 module.exports = nextConfig

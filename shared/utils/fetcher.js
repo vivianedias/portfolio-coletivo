@@ -25,8 +25,6 @@ export default async function fetcher(
 
   const url = getUrl(endpoint);
 
-  console.log({ url });
-
   const res = await fetch(url, config);
 
   if (!res.ok) {
