@@ -11,21 +11,17 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/:path",
+        source: "/:path*",
         headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
           {
             key: "Access-Control-Allow-Headers",
             value: "api-key",
           },
-          {
-            key: "Access-Control-Allow-Origin",
-            value: "https://dev.to/api/articles/me, https://medusalab.tech",
-          },
         ],
       },
     ];
-  },
-  //
+  }
 };
 
 module.exports = nextConfig
