@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Hero, About, Articles } from "../shared/sections";
+import { Hero, About, Articles, Contact } from "../shared/sections";
 import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
@@ -13,6 +13,7 @@ export async function getStaticProps({ locale }) {
         "about",
         "home",
         "articles",
+        "contact",
       ])),
     },
   };
@@ -31,6 +32,7 @@ export default function Home({ locale }) {
       <Hero />
       <About />
       <Articles locale={locale} />
+      <Contact />
     </>
   );
 }

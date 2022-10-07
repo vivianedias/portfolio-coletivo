@@ -122,7 +122,7 @@ export default function About() {
       <Heading
         as="h2"
         textTransform={"uppercase"}
-        color={useColorModeValue("pink.500", "white")}
+        color={"pink.500"}
         fontSize={"xl"}
       >
         {t("title")}
