@@ -31,7 +31,7 @@ function ImageWithScrollAnimation({ src, alt, offset, duration }) {
         initial={{
           bottom: `-${offset}px`,
         }}
-        transition={{ duration, property: "bottom" }}
+        transition={{ duration: duration / 4, property: "bottom" }}
         animate={{
           width: "100%",
           height: "auto",
@@ -39,7 +39,7 @@ function ImageWithScrollAnimation({ src, alt, offset, duration }) {
         }}
         whileHover={{
           transition: {
-            duration,
+            duration: duration,
             property: "all",
           },
           bottom: 0,
@@ -71,7 +71,7 @@ export default function Projects({ locale }) {
               src={`/img/me-representa.png`}
               alt={t("meRepresenta.alt")}
               offset={8080}
-              duration={30}
+              duration={25}
             />
             <Box>
               <Heading
