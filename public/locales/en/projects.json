@@ -2,10 +2,12 @@
   "title": "Projects",
   "meRepresenta": {
     "title": "#MeRepresenta",
-    "description": "This platform operates as a digital space where candidates and voters that have the same priorities can meet."
+    "description": "This platform operates as a digital space where candidates and voters that have the same priorities can meet.",
+    "alt": "Screenshot of the homepage from #MeRepresenta app"
   },
   "hackingVigilance": {
     "title": "Hacking Vigilance",
-    "description": "Hacking Vigilance is an informative platform about digital security best practices, where we suggest tools and spread knowldge that could help increase your digital security online."
+    "description": "Hacking Vigilance is an informative platform about digital security best practices, where we suggest tools and spread knowldge that could help increase your digital security online.",
+    "alt": "Screenshot of the homepage from Hacking Vigilance website"
   }
 }

@@ -32,7 +32,7 @@ export default function Home({ locale }) {
       <Hero />
       <About />
       <Articles locale={locale} />
-      <Projects />
+      <Projects locale={locale} />
     </>
   );
 }
