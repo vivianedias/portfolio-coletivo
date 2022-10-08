@@ -56,7 +56,7 @@ export default function Projects({ locale }) {
       <Heading
         as="h4"
         textTransform={"uppercase"}
-        color={useColorModeValue("pink.500", "white")}
+        color={useColorModeValue("pink.500", "brand.secondary")}
         fontSize={"xl"}
       >
         {t("title")}
@@ -84,7 +84,7 @@ export default function Projects({ locale }) {
               <Text fontWeight={400} fontSize={"xl"} mt={5}>
                 <Highlight
                   query={"#MeRepresenta"}
-                  styles={{ px: "2", py: "1", bg: "pink.100" }}
+                  styles={{ px: "2", py: "1", bg: "purple.100" }}
                 >
                   {t("meRepresenta.description")}
                 </Highlight>
@@ -112,7 +112,7 @@ export default function Projects({ locale }) {
               <Text fontWeight={400} fontSize={"xl"} mt={5}>
                 <Highlight
                   query={["Hacking Vigilance", "Hackeando a vigilância"]}
-                  styles={{ px: "2", py: "1", bg: "pink.100" }}
+                  styles={{ px: "2", py: "1", bg: "purple.100" }}
                 >
                   {t("hackingVigilance.description")}
                 </Highlight>
