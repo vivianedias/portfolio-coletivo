@@ -27,22 +27,13 @@ export default function Hero() {
           color={useColorModeValue("gray.900", "gray.200")}
           lineHeight={"3.5rem"}
         >
-          {t("title")}{" "}
-          <motion.div
-            style={{
-              display: "inline-block",
-            }}
-            animate={{ rotate: 20 }}
-            transition={{
-              yoyo: 5,
-              from: 0,
-              duration: 0.3,
-              ease: "easeInOut",
-              type: "tween",
-            }}
-          >
-            👋
-          </motion.div>
+          {"<"}
+          <Text as="span" color={"brand.secondary"}>
+            {t("medusa")}
+          </Text>
+          <Text as="span">
+            {t("lab")} {"/>"}
+          </Text>
         </Heading>
         <Text
           fontWeight={300}
@@ -58,10 +49,11 @@ export default function Hero() {
         onClick={() => router.push("#about")}
         borderRadius={0}
         borderWidth={2}
-        borderColor={useColorModeValue("gray.600", "gray.50")}
+        borderColor="brand.secondary"
         variant={"outline"}
         rightIcon={<Icon as={ArrowLongRightIcon} />}
         size={"lg"}
+        color={useColorModeValue("gray.600", "gray.50")}
       >
         {t("about")}
       </Button>
