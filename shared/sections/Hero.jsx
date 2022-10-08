@@ -18,7 +18,7 @@ export default function Hero() {
   const router = useRouter();
 
   return (
-    <SectionLayout justifyContent={"center"} minHeight={"calc(100vh - 100px)"}>
+    <SectionLayout justifyContent={"center"}>
       <VStack spacing={4} alignItems={"flex-start"}>
         <Heading
           as="h1"

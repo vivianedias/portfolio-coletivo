@@ -16,5 +16,5 @@ export default function SectionLayout({ children, minHeight, ...props }) {
 }
 
 SectionLayout.defaultProps = {
-  minHeight: "100vh",
+  minHeight: "calc(100vh - 100px)",
 };
