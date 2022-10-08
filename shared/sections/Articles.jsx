@@ -123,7 +123,7 @@ export default function Articles({ locale }) {
   }
 
   return (
-    <SectionLayout mt={{ base: 20, md: 0 }} minHeight={"100%"}>
+    <SectionLayout mt={20} minHeight={"100%"}>
       <Heading
         as="h3"
         textTransform={"uppercase"}
