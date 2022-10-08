@@ -1,3 +1,7 @@
 {
-  "description": "Welcome to Medusa, a women's tech colective."
+  "description": "Welcome to Medusa, a women's tech colective.",
+  "thankYou": {
+    "title": "Thanks for reaching out!",
+    "description": "We'll reply as soon as possible"
+  }
 }

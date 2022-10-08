@@ -1,0 +1,25 @@
+{
+  "title": "Entre em contato",
+  "collaborate": "Sempre estamos abertas a colaborar em um projeto ou ouvir sobre uma nova oportunidade!",
+  "call": "Gostaria de nos ligar?",
+  "callLink": "Marque uma chamada com a gente",
+  "email": {
+    "cta": "Apenas quer mandar um email?",
+    "label": "Email",
+    "placeholder": "Seu email",
+    "link": "medusalab.tech@gmail.com"
+  },
+  "message": {
+    "label": "Mensagem",
+    "placeholder": "Escreva sua mensagem"
+  },
+  "name": {
+    "label": "Nome",
+    "placeholder": "Seu nome"
+  },
+  "lastName": {
+    "label": "Sobrenome",
+    "placeholder": "Sobrenome"
+  },
+  "btnSubmit": "Enviar"
+}

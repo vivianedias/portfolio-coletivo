@@ -117,18 +117,17 @@ export default function Articles({ locale }) {
   const { data, error, isValidating } = useSWRImmutable("/api/articles", {
     shouldRetryOnError: false,
   });
-  const headingColor = useColorModeValue("pink.500", "white");
 
   if (error) {
     return <></>;
   }
 
   return (
-    <SectionLayout mt={{ base: 20, md: 0 }} minHeight={"100%"}>
+    <SectionLayout mt={20} minHeight={"100%"}>
       <Heading
         as="h3"
         textTransform={"uppercase"}
-        color={headingColor}
+        color={"pink.500"}
         fontSize={"xl"}
       >
         {t("title")}
