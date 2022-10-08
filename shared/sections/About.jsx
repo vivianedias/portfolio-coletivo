@@ -9,8 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { SectionLayout, Image } from "../components";
-import vivianeImg from "../../public/img/viviane.jpg";
-import camilaImg from "../../public/img/camila.jpg";
+import vivianeImg from "../../public/img/viviane.png";
+import camilaImg from "../../public/img/camila.png";
 
 function AboutSection({
   name,
