@@ -1,0 +1,13 @@
+{
+  "title": "Projetos",
+  "meRepresenta": {
+    "title": "#MeRepresenta",
+    "description": "Nós construimos o app #MeRepresenta que opera como um espaço de encontro digital entre candidatas/os e eleitoras/es que priorizam as mesmas pautas que você.",
+    "alt": "Captura de tela de início do app #MeRepresenta"
+  },
+  "hackingVigilance": {
+    "title": "Hackeando a Vigilância",
+    "description": "Hackeando a Vigilância é uma plataforma informativa sobre boas práticas de segurança digital, que busca compartilhar conhecimentos e ferramentas que aumentem sua segurança pessoal online.",
+    "alt": "Captura de tela de início do site Hackeando a Vigilância"
+  }
+}
