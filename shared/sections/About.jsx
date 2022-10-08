@@ -41,9 +41,9 @@ function AboutSection({
           borderColor={useColorModeValue("gray.900", "white")}
           width={"100%"}
         >
-          <Heading as={"p"} fontSize={"4xl"} fontWeight={500} pt={2}>
+          <Text as={"p"} fontSize={"4xl"} fontWeight={500} pt={2}>
             {name}
-          </Heading>
+          </Text>
           <Text fontWeight={400} fontSize={"xl"} pb={2}>
             {position}
           </Text>
@@ -119,7 +119,7 @@ export default function About() {
       <Heading
         as="h2"
         textTransform={"uppercase"}
-        color={useColorModeValue("pink.500", "white")}
+        color={useColorModeValue("pink.500", "brand.secondary")}
         fontSize={"xl"}
       >
         {t("title")}
