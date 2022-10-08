@@ -3,6 +3,23 @@
   "collaborate": "We're always open to collaborate on a project or hear about an opportunity!",
   "call": "Want to call us?",
   "callLink": "Schedule a call with us",
-  "email": "Just want to email us?",
-  "emailLink": "medusalab.tech@gmail.com"
+  "email": {
+    "cta": "Just want to email us?",
+    "label": "Email",
+    "placeholder": "Your email",
+    "link": "medusalab.tech@gmail.com"
+  },
+  "message": {
+    "label": "Message",
+    "placeholder": "Type your message"
+  },
+  "name": {
+    "label": "Name",
+    "placeholder": "Your name"
+  },
+  "lastName": {
+    "label": "Last name",
+    "placeholder": "Last name"
+  },
+  "btnSubmit": "Submit"
 }

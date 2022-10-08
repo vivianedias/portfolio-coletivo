@@ -1,5 +1,11 @@
 import {
-  Stack,
+  FormControl,
+  FormLabel,
+  InputGroup,
+  InputLeftElement,
+  Input,
+  Textarea,
+  Button,
   VStack,
   Heading,
   Text,
@@ -8,9 +14,12 @@ import {
   Box,
   Grid,
   GridItem,
+  Icon,
+  Stack,
 } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { SectionLayout } from "../components";
+import { UserIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
 function CallToAction({ link, href, title }) {
   return (
@@ -42,6 +51,7 @@ function CallToAction({ link, href, title }) {
 
 export default function Contact() {
   const { t } = useTranslation("contact");
+
   return (
     <SectionLayout mt={20}>
       <Grid
@@ -77,13 +87,13 @@ export default function Contact() {
             <VStack spacing={8} align={"flex-start"}>
               <CallToAction
                 link={t("callLink")}
-                href={"https://calendly.com/"}
+                href={"https://calendly.com/medusalab-tech"}
                 title={t("call")}
               />
               <CallToAction
-                link={t("emailLink")}
+                link={t("email.link")}
                 href={"mailto:medusalab.tech@gmail.com"}
-                title={t("email")}
+                title={t("email.cta")}
               />
             </VStack>
           </VStack>
@@ -91,14 +101,81 @@ export default function Contact() {
         <GridItem>
           <Box
             width={"100%"}
-            height={"450px"}
-            border={"1px solid"}
-            borderColor={useColorModeValue(
-              useColorModeValue("gray.300", "white")
-            )}
-            borderRadius={"md"}
-            boxShadow={"xl"}
-          ></Box>
+            height={"min-content"}
+            bg={useColorModeValue("white", "gray.700")}
+            borderRadius="lg"
+            p={8}
+            color={useColorModeValue("gray.700", "whiteAlpha.900")}
+            shadow="base"
+            as={"form"}
+            action={"https://submit-form.com/TA7rFyq0"}
+          >
+            <VStack spacing={5}>
+              <input
+                type="hidden"
+                name="_redirect"
+                value={typeof window !== "undefined" && window.location}
+              />
+              <FormControl isRequired>
+                <FormLabel>{t("name.label")}</FormLabel>
+
+                <Stack direction={{ base: "column", md: "row" }} spacing={5}>
+                  <InputGroup>
+                    <InputLeftElement>
+                      <Icon as={UserIcon} />
+                    </InputLeftElement>
+                    <Input
+                      type="text"
+                      name="name"
+                      placeholder={t("name.placeholder")}
+                    />
+                  </InputGroup>
+                  <Input
+                    type="text"
+                    name="lastName"
+                    placeholder={t("lastName.placeholder")}
+                  />
+                </Stack>
+              </FormControl>
+
+              <FormControl isRequired>
+                <FormLabel>{t("email.label")}</FormLabel>
+
+                <InputGroup>
+                  <InputLeftElement>
+                    <Icon as={EnvelopeIcon} />
+                  </InputLeftElement>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder={t("email.placeholder")}
+                  />
+                </InputGroup>
+              </FormControl>
+
+              <FormControl isRequired>
+                <FormLabel>{t("message.label")}</FormLabel>
+
+                <Textarea
+                  name="message"
+                  placeholder={t("message.placeholder")}
+                  rows={6}
+                  resize="none"
+                  required
+                />
+              </FormControl>
+
+              <Button
+                colorScheme="pink"
+                bg="pink.500"
+                color="white"
+                width={"full"}
+                type="submit"
+              >
+                {t("btnSubmit")}
+              </Button>
+            </VStack>
+          </Box>
         </GridItem>
       </Grid>
     </SectionLayout>
