@@ -44,13 +44,13 @@ function AboutSection({
           >
             <Text
               as={"p"}
-              fontSize={{ base: "xl", md: "4xl" }}
+              fontSize={{ base: "lg", md: "4xl" }}
               fontWeight={500}
               pt={2}
             >
               {name}
             </Text>
-            <Text fontWeight={400} fontSize={{ base: "sm", md: "xl" }} pb={2}>
+            <Text fontWeight={400} fontSize={{ base: "xs", md: "xl" }} pb={2}>
               {position}
             </Text>
           </Box>
@@ -110,7 +110,6 @@ function AboutSection({
         </VStack>
 
         <Image
-          // order={{ base: 2, md: 3 }}
           height={{ base: "200px", md: "350px" }}
           width={{ base: "80%", md: "350px" }}
           src={image}
