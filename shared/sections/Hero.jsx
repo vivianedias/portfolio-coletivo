@@ -22,7 +22,7 @@ export default function Hero() {
       <VStack spacing={4} alignItems={"flex-start"}>
         <Heading
           as="h1"
-          fontSize={{ base: "4xl", md: "7xl" }}
+          fontSize={{ base: "3xl", md: "7xl" }}
           fontWeight={700}
           color={useColorModeValue("gray.900", "gray.200")}
           lineHeight={"3.5rem"}
@@ -37,7 +37,7 @@ export default function Hero() {
         </Heading>
         <Text
           fontWeight={300}
-          fontSize={{ base: "2xl", md: "4xl" }}
+          fontSize={{ base: "xl", md: "4xl" }}
           lineHeight={{ base: "1.5rem", md: "3rem" }}
           color={useColorModeValue("gray.600", "gray.50")}
           width={{ base: "100%", md: "80%" }}
