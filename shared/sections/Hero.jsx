@@ -22,7 +22,7 @@ export default function Hero() {
       <VStack spacing={4} alignItems={"flex-start"}>
         <Heading
           as="h1"
-          fontSize={{ base: "5xl", md: "7xl" }}
+          fontSize={{ base: "4xl", md: "7xl" }}
           fontWeight={700}
           color={useColorModeValue("gray.900", "gray.200")}
           lineHeight={"3.5rem"}
