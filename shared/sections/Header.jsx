@@ -10,6 +10,7 @@ import {
   useDisclosure,
   useColorMode,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
@@ -24,14 +25,14 @@ export default function WithSubnavigation() {
   return (
     <Box mb={10}>
       <Flex
-        bg={useColorModeValue("gray.50", "gray.800")}
+        bg={useColorModeValue("gray.50", "brand.primary")}
         color={useColorModeValue("gray.600", "gray.50")}
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        borderBottom={1}
+        borderBottom={isOpen ? 0 : 0.5}
         borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
+        borderColor={useColorModeValue("gray.200", "gray.50")}
         align={"center"}
       >
         <Flex
@@ -41,9 +42,19 @@ export default function WithSubnavigation() {
         >
           <IconButton
             onClick={onToggle}
-            icon={isOpen ? <Icon as={XMarkIcon} /> : <Icon as={Bars3Icon} />}
+            icon={
+              isOpen ? (
+                <Icon as={XMarkIcon} boxSize={"1.5em"} />
+              ) : (
+                <Icon as={Bars3Icon} boxSize={"1.5em"} />
+              )
+            }
             variant={"ghost"}
             aria-label={t("navigation")}
+            _focus={{
+              borderWidth: 1,
+              borderColor: "brand.secondary",
+            }}
           />
         </Flex>
         <Flex
@@ -73,16 +84,17 @@ export default function WithSubnavigation() {
           />
           <Button
             display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
+            fontSize={"md"}
             fontWeight={600}
             color={"white"}
-            bg={"pink.400"}
+            bg={"brand.secondary"}
             onClick={() => router.push("#contact")}
             _hover={{
-              bg: "pink.300",
+              bg: "#53edbe",
             }}
+            borderRadius={0}
           >
-            {t("touch")}
+            <Heading size="sm">{t("touch")}</Heading>
           </Button>
         </Stack>
       </Flex>
@@ -114,7 +126,7 @@ const DesktopNav = () => {
             color: linkHoverColor,
           }}
         >
-          {navItem.label}
+          <Heading size="sm">{navItem.label}</Heading>
         </Link>
       ))}
     </Stack>
@@ -126,9 +138,12 @@ const MobileNav = () => {
 
   return (
     <Stack
-      bg={useColorModeValue("white", "gray.800")}
+      bg={useColorModeValue("white", "brand.primary")}
       p={4}
       display={{ md: "none" }}
+      borderBottom={0.5}
+      borderStyle={"solid"}
+      borderColor={useColorModeValue("gray.200", "gray.50")}
     >
       {NAV_ITEMS(t).map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
@@ -141,7 +156,7 @@ const MobileNavItem = ({ label, children, href }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4} onClick={children && onToggle} align={"center"}>
       <Link
         py={2}
         href={href ?? "#"}
@@ -152,7 +167,7 @@ const MobileNavItem = ({ label, children, href }) => {
         fontWeight={600}
         color={useColorModeValue("gray.900", "gray.200")}
       >
-        {label}
+        <Heading size="sm">{label}</Heading>
       </Link>
     </Stack>
   );
