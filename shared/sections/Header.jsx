@@ -14,13 +14,12 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
+import scrollIntoView from "../utils/scrollIntoView";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const { t } = useTranslation("common");
-  const router = useRouter();
   return (
     <Box mb={10}>
       <Flex
@@ -77,7 +76,7 @@ export default function WithSubnavigation() {
             fontWeight={600}
             color={"white"}
             bg={"pink.400"}
-            onClick={() => router.push("#contact")}
+            onClick={() => scrollIntoView("#contact")}
             _hover={{
               bg: "pink.300",
             }}
@@ -102,10 +101,11 @@ const DesktopNav = () => {
   return (
     <Stack direction={"row"} spacing={4}>
       {NAV_ITEMS(t).map((navItem) => (
-        <Link
+        <Button
           key={navItem.label}
+          onClick={navItem.onClick}
+          variant={"unstyled"}
           p={2}
-          href={navItem.href ?? "#"}
           fontSize={"md"}
           fontWeight={500}
           color={linkColor}
@@ -115,7 +115,7 @@ const DesktopNav = () => {
           }}
         >
           {navItem.label}
-        </Link>
+        </Button>
       ))}
     </Stack>
   );
@@ -137,38 +137,42 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, children, onClick }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
-      <Link
+      <Button
+        variant={"unstyled"}
         py={2}
-        href={href ?? "#"}
         _hover={{
           textDecoration: "none",
           color: useColorModeValue("pink.500", "white"),
         }}
         fontWeight={600}
         color={useColorModeValue("gray.900", "gray.200")}
+        onClick={onClick}
       >
         {label}
-      </Link>
+      </Button>
     </Stack>
   );
 };
 
-const NAV_ITEMS = (t) => [
-  {
-    label: t("about"),
-    href: "#about",
-  },
-  {
-    label: t("articles"),
-    href: "#articles",
-  },
-  {
-    label: t("projects"),
-    href: "#projects",
-  },
-];
+const NAV_ITEMS = (t) => {
+  return [
+    {
+      label: t("about"),
+      onClick: () => scrollIntoView("#about"),
+    },
+    {
+      label: t("projects"),
+      onClick: () => scrollIntoView("#projects"),
+    },
+    {
+      label: t("articles"),
+      onClick: () => scrollIntoView("#articles"),
+    },
+  ];
+};
+
