@@ -16,6 +16,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { Image } from "../components";
+import logo from "../../public/img/logo.png";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -113,6 +115,12 @@ const DesktopNav = () => {
 
   return (
     <Stack direction={"row"} spacing={4}>
+      <Image
+        height={{ base: "50px", md: "30px" }}
+        width={{ base: "80%", md: "200px" }}
+        src={logo}
+        alt={"medusa.lab"}
+      />
       {NAV_ITEMS(t).map((navItem) => (
         <Link
           key={navItem.label}
