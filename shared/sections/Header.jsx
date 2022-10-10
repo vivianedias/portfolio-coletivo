@@ -148,6 +148,21 @@ const MobileNav = () => {
       {NAV_ITEMS(t).map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      <Stack align={"center"}>
+        <Button
+          fontSize={"md"}
+          fontWeight={600}
+          color={"white"}
+          bg={"brand.secondary"}
+          onClick={() => router.push("#contact")}
+          _hover={{
+            bg: "#53edbe",
+          }}
+          borderRadius={0}
+        >
+          <Heading size="sm">{t("touch")}</Heading>
+        </Button>
+      </Stack>
     </Stack>
   );
 };
