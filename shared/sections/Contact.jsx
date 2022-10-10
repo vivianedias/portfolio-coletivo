@@ -29,6 +29,7 @@ function CallToAction({ link, href, title }) {
         textTransform={"uppercase"}
         letterSpacing={-1}
         fontWeight={500}
+        fontFamily={"heading"}
       >
         {title}
       </Text>
@@ -39,9 +40,10 @@ function CallToAction({ link, href, title }) {
         target={"_blank"}
         color={useColorModeValue("gray.900", "gray.200")}
         _hover={{
-          color: useColorModeValue("pink.500", "white"),
+          color: useColorModeValue("purple.700", "white"),
+          textDecoration: "underline",
         }}
-        fontSize={"xl"}
+        fontSize={{ base: "lg", md: "xl" }}
       >
         {link}
       </Link>
@@ -53,10 +55,11 @@ export default function Contact() {
   const { t } = useTranslation("contact");
 
   return (
-    <SectionLayout justifyContent={"center"} id={"#contact"}>
+    <SectionLayout id={"#contact"} mt={20} minHeight={"100%"}>
       <Grid
         templateColumns={{ base: "1f", md: "0.7fr 1fr" }}
         gridColumnGap={20}
+        gridRowGap={{ base: 10, md: 0 }}
         height={"min-content"}
       >
         <GridItem>
@@ -64,21 +67,22 @@ export default function Contact() {
             justifyContent={"space-between"}
             align={"flex-start"}
             height={"100%"}
+            spacing={{ base: 5, md: 0 }}
           >
             <Box>
               <Heading
                 as="h5"
                 textTransform={"uppercase"}
-                color={"pink.500"}
+                color={useColorModeValue("purple.700", "brand.secondary")}
                 fontSize={"xl"}
                 pb={2}
               >
                 {t("title")}
               </Heading>
               <Text
-                fontSize={"2xl"}
+                fontSize={{ base: "xl", md: "2xl" }}
                 color={useColorModeValue("gray.600", "gray.50")}
-                lineHeight={8}
+                lineHeight={{ base: 6, md: 8 }}
                 fontWeight={500}
               >
                 {t("collaborate")}
@@ -102,7 +106,7 @@ export default function Contact() {
           <Box
             width={"100%"}
             height={"min-content"}
-            bg={useColorModeValue("white", "gray.700")}
+            bg={useColorModeValue("white", "whiteAlpha.200")}
             borderRadius="lg"
             p={8}
             color={useColorModeValue("gray.700", "whiteAlpha.900")}
@@ -166,8 +170,10 @@ export default function Contact() {
               </FormControl>
 
               <Button
-                colorScheme="pink"
-                bg="pink.500"
+                _hover={{
+                  bg: useColorModeValue("purple.500", "brand.secondaryHover"),
+                }}
+                bg={useColorModeValue("purple.700", "brand.secondary")}
                 color="white"
                 width={"full"}
                 type="submit"

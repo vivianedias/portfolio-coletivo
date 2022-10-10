@@ -43,7 +43,7 @@ function BlogPostWithImage({
       <Box
         maxW={"360px"}
         w={"full"}
-        bg={useColorModeValue("white", "gray.900")}
+        bg={useColorModeValue("white", "whiteAlpha.200")}
         boxShadow={"2xl"}
         rounded={"md"}
         p={6}
@@ -62,7 +62,7 @@ function BlogPostWithImage({
           </Box>
           <Stack minH={"270px"}>
             <Text
-              color={"pink.500"}
+              color={"purple.700"}
               textTransform={"uppercase"}
               fontWeight={800}
               fontSize={"sm"}
@@ -117,17 +117,18 @@ export default function Articles({ locale }) {
   const { data, error, isValidating } = useSWRImmutable("/api/articles", {
     shouldRetryOnError: false,
   });
+  const headingColor = useColorModeValue("purple.700", "brand.secondary");
 
   if (error) {
     return <></>;
   }
 
   return (
-    <SectionLayout mt={20} minHeight={"100%"} id={"#articles"}>
+    <SectionLayout id={"#articles"} mt={20} minHeight={"100%"}>
       <Heading
         as="h3"
         textTransform={"uppercase"}
-        color={"pink.500"}
+        color={headingColor}
         fontSize={"xl"}
       >
         {t("title")}

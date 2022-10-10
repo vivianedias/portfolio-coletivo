@@ -6,6 +6,7 @@ export default function SectionLayout({ children, minHeight, id, ...props }) {
       <VStack
         spacing={10}
         alignItems={"flex-start"}
+        justifyContent={"center"}
         minHeight={minHeight}
         {...props}
       >
@@ -16,5 +17,5 @@ export default function SectionLayout({ children, minHeight, id, ...props }) {
 }
 
 SectionLayout.defaultProps = {
-  minHeight: "calc(100vh - 100px)",
+  minHeight: "100vh",
 };
