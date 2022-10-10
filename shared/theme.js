@@ -10,6 +10,7 @@ module.exports = {
     brand: {
       primary: "#19062b",
       secondary: "#0bb883",
+      secondaryHover: "#53edbe",
     },
   },
   styles: {

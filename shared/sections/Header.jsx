@@ -24,7 +24,7 @@ export default function WithSubnavigation() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { t } = useTranslation("common");
   return (
-    <Box mb={10}>
+    <Box position={"fixed"} width={"100%"} zIndex={1000} fontFamily={"heading"}>
       <Flex
         bg={useColorModeValue("gray.50", "brand.primary")}
         color={useColorModeValue("gray.600", "gray.50")}
@@ -58,6 +58,7 @@ export default function WithSubnavigation() {
             }}
           />
         </Flex>
+        <Image height={"30px"} width={"200px"} src={logo} alt={t("logoAlt")} />
         <Flex
           flex={{ base: 1 }}
           display={{ base: "none", md: "flex" }}
@@ -85,17 +86,18 @@ export default function WithSubnavigation() {
           />
           <Button
             display={{ base: "none", md: "inline-flex" }}
-            fontSize={"md"}
-            fontWeight={600}
+            fontSize={"sm"}
+            fontWeight={700}
             color={"white"}
             bg={"brand.secondary"}
             onClick={() => scrollIntoView("#contact")}
             _hover={{
-              bg: "#53edbe",
+              bg: "brand.secondaryHover",
             }}
             borderRadius={0}
+            textTransform={"uppercase"}
           >
-            <Heading size="sm">{t("touch")}</Heading>
+            {t("touch")}
           </Button>
         </Stack>
       </Flex>
@@ -109,17 +111,11 @@ export default function WithSubnavigation() {
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.900", "gray.200");
-  const linkHoverColor = useColorModeValue("pink.500", "white");
+  const linkHoverColor = useColorModeValue("purple.700", "white");
   const { t } = useTranslation("common");
 
   return (
     <Stack direction={"row"} spacing={4}>
-      <Image
-        height={{ base: "50px", md: "30px" }}
-        width={{ base: "80%", md: "200px" }}
-        src={logo}
-        alt={"medusa.lab"}
-      />
       {NAV_ITEMS(t).map((navItem) => (
         <Button
           key={navItem.label}
@@ -133,8 +129,9 @@ const DesktopNav = () => {
             textDecoration: "none",
             color: linkHoverColor,
           }}
+          textTransform={"lowercase"}
         >
-          <Heading size="sm">{navItem.label}</Heading>
+          {navItem.label}
         </Button>
       ))}
     </Stack>
@@ -158,17 +155,18 @@ const MobileNav = () => {
       ))}
       <Stack align={"center"}>
         <Button
-          fontSize={"md"}
-          fontWeight={600}
+          fontWeight={700}
           color={"white"}
           bg={"brand.secondary"}
-          onClick={() => router.push("#contact")}
+          onClick={() => scrollIntoView("#contact")}
           _hover={{
-            bg: "#53edbe",
+            bg: "brand.secondaryHover",
           }}
           borderRadius={0}
+          textTransform={"uppercase"}
+          fontSize={"sm"}
         >
-          <Heading size="sm">{t("touch")}</Heading>
+          {t("touch")}
         </Button>
       </Stack>
     </Stack>
@@ -185,13 +183,15 @@ const MobileNavItem = ({ label, children, onClick }) => {
         py={2}
         _hover={{
           textDecoration: "none",
-          color: useColorModeValue("pink.500", "white"),
+          color: useColorModeValue("purple.700", "white"),
         }}
-        fontWeight={600}
+        fontWeight={500}
         color={useColorModeValue("gray.900", "gray.200")}
         onClick={onClick}
+        fontSize={"md"}
+        textTransform={"lowercase"}
       >
-        <Heading size="sm">{label}</Heading>
+        {label}
       </Button>
     </Stack>
   );

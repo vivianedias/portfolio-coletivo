@@ -1,11 +1,12 @@
 {
   "home": "Início",
   "about": "SOBRE",
-  "articles": "ARTIGOS",
-  "projects": "PROJETOS",
-  "contact": "CONTATO",
+  "articles": "Artigos",
+  "projects": "Projetos",
+  "contact": "Contato",
   "rights": "medusa.lab. Feito por mulheres.",
   "colorMode": "Mudar cor do tema",
   "navigation": "Mudar navegação",
-  "touch": "ENTRE EM CONTATO"
+  "touch": "Entre em contato",
+  "logoAlt": "logo da medusa.lab"
 }
