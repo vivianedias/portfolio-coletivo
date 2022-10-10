@@ -6,19 +6,17 @@ import {
   Icon,
   VStack,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import { SectionLayout } from "../components";
+import scrollIntoView from "../utils/scrollIntoView";
 
 export default function Hero() {
   const { t } = useTranslation("hero");
-  const router = useRouter();
 
   return (
-    <SectionLayout justifyContent={"center"} id={"#hero"}>
+    <SectionLayout id={"#hero"}>
       <VStack spacing={4} alignItems={"flex-start"}>
         <Heading
           as="h1"
@@ -46,7 +44,7 @@ export default function Hero() {
         </Text>
       </VStack>
       <Button
-        onClick={() => router.push("#about")}
+        onClick={() => scrollIntoView("#about")}
         borderRadius={0}
         borderWidth={2}
         borderColor="brand.secondary"

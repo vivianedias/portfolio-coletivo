@@ -62,7 +62,7 @@ function AboutSection({
           >
             <Link
               _hover={{
-                color: useColorModeValue("pink.500", "white"),
+                color: useColorModeValue("purple.700", "white"),
               }}
               color={useColorModeValue("gray.900", "gray.200")}
               href={githubProfile}
@@ -77,7 +77,7 @@ function AboutSection({
             </Link>
             <Link
               _hover={{
-                color: useColorModeValue("pink.500", "white"),
+                color: useColorModeValue("purple.700", "white"),
               }}
               color={useColorModeValue("gray.900", "gray.200")}
               href={linkedinProfile}
@@ -92,7 +92,7 @@ function AboutSection({
             </Link>
             <Link
               _hover={{
-                color: useColorModeValue("pink.500", "white"),
+                color: useColorModeValue("purple.700", "white"),
               }}
               color={useColorModeValue("gray.900", "gray.200")}
               href={curriculumLink}
@@ -124,11 +124,11 @@ export default function About() {
   const { t } = useTranslation("about");
 
   return (
-    <SectionLayout justifyContent={"flex-start"} id={"#about"}>
+    <SectionLayout id={"#about"}>
       <Heading
         as="h2"
         textTransform={"uppercase"}
-        color={useColorModeValue("pink.500", "brand.secondary")}
+        color={useColorModeValue("purple.700", "brand.secondary")}
         fontSize={"xl"}
       >
         {t("title")}
