@@ -20,6 +20,7 @@ function FooterLinks({ id, children }) {
       color={useColorModeValue("gray.900", "gray.200")}
       onClick={() => scrollIntoView(id)}
       textTransform={"lowercase"}
+      fontWeight={500}
     >
       {children}
     </Button>
