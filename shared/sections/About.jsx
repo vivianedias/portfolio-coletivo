@@ -115,7 +115,7 @@ export default function About() {
   const { t } = useTranslation("about");
 
   return (
-    <SectionLayout justifyContent={"flex-start"}>
+    <SectionLayout justifyContent={"flex-start"} id={"#about"}>
       <Heading
         as="h2"
         textTransform={"uppercase"}

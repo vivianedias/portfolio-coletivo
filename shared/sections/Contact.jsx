@@ -53,7 +53,7 @@ export default function Contact() {
   const { t } = useTranslation("contact");
 
   return (
-    <SectionLayout justifyContent={"center"}>
+    <SectionLayout justifyContent={"center"} id={"#contact"}>
       <Grid
         templateColumns={{ base: "1f", md: "0.7fr 1fr" }}
         gridColumnGap={20}

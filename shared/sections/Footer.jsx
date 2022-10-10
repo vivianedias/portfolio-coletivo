@@ -3,24 +3,24 @@ import {
   Container,
   Stack,
   Text,
-  Link,
+  Button,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
-import NextLink from "next/link";
+import scrollIntoView from "../utils/scrollIntoView";
 
-function FooterLinks({ href, children }) {
+function FooterLinks({ id, children }) {
   return (
-    <NextLink href={href} passHref>
-      <Link
-        _hover={{
-          color: useColorModeValue("pink.500", "white"),
-        }}
-        color={useColorModeValue("gray.900", "gray.200")}
-      >
-        {children}
-      </Link>
-    </NextLink>
+    <Button
+      variant={"unstyled"}
+      _hover={{
+        color: useColorModeValue("pink.500", "white"),
+      }}
+      color={useColorModeValue("gray.900", "gray.200")}
+      onClick={() => scrollIntoView(id)}
+    >
+      {children}
+    </Button>
   );
 }
 
@@ -45,11 +45,11 @@ export default function SmallWithNavigation() {
         align={{ base: "center", md: "center" }}
       >
         <Stack direction={"row"} spacing={6}>
-          <FooterLinks href="/">{t("home")}</FooterLinks>
-          <FooterLinks href="#about">{t("about")}</FooterLinks>
-          <FooterLinks href="#articles">{t("articles")}</FooterLinks>
-          <FooterLinks href="#projects">{t("projects")}</FooterLinks>
-          <FooterLinks href="#contact">{t("contact")}</FooterLinks>
+          <FooterLinks id="#hero">{t("home")}</FooterLinks>
+          <FooterLinks id="#about">{t("about")}</FooterLinks>
+          <FooterLinks id="#articles">{t("articles")}</FooterLinks>
+          <FooterLinks id="#projects">{t("projects")}</FooterLinks>
+          <FooterLinks id="#contact">{t("contact")}</FooterLinks>
         </Stack>
         <Text color={useColorModeValue("gray.600", "gray.200")}>
           © {year} {t("rights")}

@@ -52,11 +52,11 @@ function ImageWithScrollAnimation({ src, alt, offset, duration }) {
 export default function Projects({ locale }) {
   const { t } = useTranslation("projects");
   return (
-    <SectionLayout>
+    <SectionLayout id={"#projects"}>
       <Heading
         as="h4"
         textTransform={"uppercase"}
-        color={useColorModeValue("pink.500", "white")}
+        color={"pink.500"}
         fontSize={"xl"}
       >
         {t("title")}
