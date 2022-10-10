@@ -52,7 +52,7 @@ function ImageWithScrollAnimation({ src, alt, offset, duration }) {
 export default function Projects({ locale }) {
   const { t } = useTranslation("projects");
   return (
-    <SectionLayout mt={20}>
+    <SectionLayout id={"#projects"}>
       <Heading
         as="h4"
         textTransform={"uppercase"}
