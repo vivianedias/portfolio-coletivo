@@ -1,13 +1,12 @@
-import { SectionLayout } from "../components";
+import { Image, SectionLayout, Window } from "../components";
 import {
   Heading,
   useColorModeValue,
-  Grid,
   Box,
   Text,
   VStack,
   Highlight,
-  GridItem,
+  Stack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
@@ -49,6 +48,24 @@ function ImageWithScrollAnimation({ src, alt, offset, duration }) {
   );
 }
 
+function ImageWithBorder({ src, alt }) {
+  return (
+    <Box position={"relative"} margin={"0 auto"}>
+      <Box
+        bgColor={"brand.secondaryHover"}
+        position={"relative"}
+        minWidth={{ base: "285px", xl: "500px" }}
+        minHeight={{ base: "170px", xl: "273px" }}
+        right={"20px"}
+        mb={4}
+      />
+      <Window>
+        <Image src={src} alt={alt} boxSize={"100%"} position={"absolute"} />
+      </Window>
+    </Box>
+  );
+}
+
 export default function Projects({ locale }) {
   const { t } = useTranslation("projects");
   return (
@@ -61,66 +78,63 @@ export default function Projects({ locale }) {
       >
         {t("title")}
       </Heading>
-      <Grid
-        templateColumns={{ base: "1fr", md: "1fr 0.15fr 1fr" }}
-        templateRows={{ base: "1fr 0.05fr 1fr", md: "1fr" }}
-      >
-        <GridItem>
-          <VStack align={"flex-start"} spacing={6}>
-            <ImageWithScrollAnimation
-              src={`/img/me-representa.png`}
-              alt={t("meRepresenta.alt")}
-              offset={8080}
-              duration={25}
-            />
-            <Box>
-              <Heading
-                color={useColorModeValue("gray.900", "gray.200")}
-                size={"2xl"}
-                as={"p"}
+      <Stack direction={{ base: "column", md: "row" }} spacing={10}>
+        <VStack
+          align={"flex-start"}
+          spacing={{ base: 6, md: 12 }}
+          flex={"1 1 0"}
+        >
+          <ImageWithBorder
+            src={`/img/me-representa.png`}
+            alt={t("meRepresenta.alt")}
+          />
+          <Box>
+            <Heading
+              color={useColorModeValue("gray.900", "gray.200")}
+              size={"2xl"}
+              as={"p"}
+            >
+              {t("meRepresenta.title")}
+            </Heading>
+            <Text fontWeight={400} fontSize={"xl"} mt={5}>
+              <Highlight
+                query={"#MeRepresenta"}
+                styles={{ px: "2", py: "1", bg: "purple.100" }}
               >
-                {t("meRepresenta.title")}
-              </Heading>
-              <Text fontWeight={400} fontSize={"xl"} mt={5}>
-                <Highlight
-                  query={"#MeRepresenta"}
-                  styles={{ px: "2", py: "1", bg: "purple.100" }}
-                >
-                  {t("meRepresenta.description")}
-                </Highlight>
-              </Text>
-            </Box>
-          </VStack>
-        </GridItem>
-        <GridItem></GridItem>
-        <GridItem>
-          <VStack align={"flex-start"} mt={{ base: 0, md: 24 }} spacing={6}>
-            <ImageWithScrollAnimation
-              src={`/img/hacking-vigilance-${locale}.png`}
-              alt={t("hackingVigilance.alt")}
-              offset={locale === "pt-BR" ? 2740 : 2710}
-              duration={13}
-            />
-            <Box>
-              <Heading
-                color={useColorModeValue("gray.900", "gray.200")}
-                size={"2xl"}
-                as={"p"}
+                {t("meRepresenta.description")}
+              </Highlight>
+            </Text>
+          </Box>
+        </VStack>
+        <VStack
+          align={"flex-start"}
+          spacing={{ base: 6, md: 12 }}
+          flex={"1 1 0"}
+        >
+          <ImageWithBorder
+            src={`/img/hacking-vigilance-${locale}.png`}
+            alt={t("hackingVigilance.alt")}
+          />
+          <Box>
+            <Heading
+              color={useColorModeValue("gray.900", "gray.200")}
+              size={"2xl"}
+              as={"p"}
+              whiteSpace={{ base: "normal", xl: "nowrap" }}
+            >
+              {t("hackingVigilance.title")}
+            </Heading>
+            <Text fontWeight={400} fontSize={"xl"} mt={5}>
+              <Highlight
+                query={["Hacking Vigilance", "Hackeando a vigilância"]}
+                styles={{ px: "2", py: "1", bg: "purple.100" }}
               >
-                {t("hackingVigilance.title")}
-              </Heading>
-              <Text fontWeight={400} fontSize={"xl"} mt={5}>
-                <Highlight
-                  query={["Hacking Vigilance", "Hackeando a vigilância"]}
-                  styles={{ px: "2", py: "1", bg: "purple.100" }}
-                >
-                  {t("hackingVigilance.description")}
-                </Highlight>
-              </Text>
-            </Box>
-          </VStack>
-        </GridItem>
-      </Grid>
+                {t("hackingVigilance.description")}
+              </Highlight>
+            </Text>
+          </Box>
+        </VStack>
+      </Stack>
     </SectionLayout>
   );
 }

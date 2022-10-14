@@ -37,7 +37,7 @@ export default function Hero() {
           <Heading
             as="h1"
             fontSize={{ base: "3xl", md: "7xl" }}
-            fontWeight={700}
+            fontWeight={500}
             color={useColorModeValue("gray.900", "gray.200")}
             lineHeight={"3.5rem"}
             overflow={"hidden"}
