@@ -52,7 +52,7 @@ function ImageWithBorder({ src, alt }) {
   return (
     <Box position={"relative"} margin={"0 auto"}>
       <Box
-        bgColor={"brand.secondary"}
+        bgColor={"brand.secondaryHover"}
         position={"relative"}
         minWidth={{ base: "285px", xl: "500px" }}
         minHeight={{ base: "170px", xl: "273px" }}
@@ -79,7 +79,11 @@ export default function Projects({ locale }) {
         {t("title")}
       </Heading>
       <Stack direction={{ base: "column", md: "row" }} spacing={10}>
-        <VStack align={"flex-start"} spacing={6} flex={"1 1 0"}>
+        <VStack
+          align={"flex-start"}
+          spacing={{ base: 6, md: 12 }}
+          flex={"1 1 0"}
+        >
           <ImageWithBorder
             src={`/img/me-representa.png`}
             alt={t("meRepresenta.alt")}
@@ -102,7 +106,11 @@ export default function Projects({ locale }) {
             </Text>
           </Box>
         </VStack>
-        <VStack align={"flex-start"} spacing={6} flex={"1 1 0"}>
+        <VStack
+          align={"flex-start"}
+          spacing={{ base: 6, md: 12 }}
+          flex={"1 1 0"}
+        >
           <ImageWithBorder
             src={`/img/hacking-vigilance-${locale}.png`}
             alt={t("hackingVigilance.alt")}
@@ -112,7 +120,7 @@ export default function Projects({ locale }) {
               color={useColorModeValue("gray.900", "gray.200")}
               size={"2xl"}
               as={"p"}
-              whiteSpace={"nowrap"}
+              whiteSpace={{ base: "normal", xl: "nowrap" }}
             >
               {t("hackingVigilance.title")}
             </Heading>
