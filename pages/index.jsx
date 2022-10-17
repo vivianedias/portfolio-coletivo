@@ -48,6 +48,8 @@ export default function Home({ locale }) {
         <meta property="og:title" content="medusa.lab" />
         <meta property="og:description" content={t("meta.description")} />
         <meta property="og:image" content="/img/logo.png" />
+        <meta property="og:image:width" content="200" />
+        <meta property="og:image:height" content="30" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
