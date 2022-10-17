@@ -11,6 +11,7 @@ import {
   useColorMode,
   Button,
   Heading,
+  Text,
 } from "@chakra-ui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
@@ -58,7 +59,20 @@ export default function WithSubnavigation() {
             }}
           />
         </Flex>
-        <Image height={"30px"} width={"200px"} src={logo} alt={t("logoAlt")} />
+        <Heading
+          as="h1"
+          fontSize={{ base: "xl", md: "2xl" }}
+          fontWeight={500}
+          color={useColorModeValue("gray.900", "gray.200")}
+        >
+          {"<"}
+          <Text as="span" color={"brand.secondary"}>
+            {t("medusa")}
+          </Text>
+          <Text as="span">
+            {t(".lab")} {"/> "}
+          </Text>
+        </Heading>
         <Flex
           flex={{ base: 1 }}
           display={{ base: "none", md: "flex" }}
@@ -213,4 +227,3 @@ const NAV_ITEMS = (t) => {
     },
   ];
 };
-
