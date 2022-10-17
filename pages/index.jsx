@@ -44,7 +44,10 @@ export default function Home({ locale }) {
     <>
       <Head>
         <title>medusa.lab</title>
-        <meta name="description" content={t("meta.description")} />
+        <meta name="description" content={t("meta.description")} key="desc" />
+        <meta property="og:title" content="medusa.lab" />
+        <meta property="og:description" content={t("meta.description")} />
+        <meta property="og:image" content="/img/logo.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
