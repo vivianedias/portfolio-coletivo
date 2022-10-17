@@ -1,6 +1,6 @@
 module.exports = {
   config: {
-    initialColorMode: "system",
+    initialColorMode: "dark",
   },
   fonts: {
     heading: `"Fira Mono", monospace`,
