@@ -50,6 +50,9 @@ export default function Home({ locale }) {
         <meta property="og:image" content="/img/logo.png" />
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="30" />
+        <meta name="twitter:title" content="medusa.lab " />
+        <meta name="twitter:description" content={t("meta.description")} />
+        <meta name="twitter:image" content="/img/logo.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
