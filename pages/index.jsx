@@ -54,6 +54,7 @@ export default function Home({ locale }) {
         <meta name="twitter:description" content={t("meta.description")} />
         <meta name="twitter:image" content="/img/logo.png" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="all" />
       </Head>
 
       <Hero />
