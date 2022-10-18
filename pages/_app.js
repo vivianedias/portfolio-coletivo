@@ -13,6 +13,7 @@ import { VStack } from "@chakra-ui/react";
 import { SWRConfig } from "swr";
 
 import { Header, Footer } from "../shared/sections";
+import { Analytics } from "../shared/components";
 import theme from "../shared/theme";
 import fetcher from "../shared/utils/fetcher";
 
@@ -20,15 +21,18 @@ const extendedTheme = extendTheme(theme);
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={extendedTheme}>
-      <SWRConfig value={{ fetcher }}>
-        <Header />
-        <VStack as="main" flex={1} minHeight={"calc(100vh - 100px - 100px)"}>
-          <Component {...pageProps} />
-        </VStack>
-        <Footer />
-      </SWRConfig>
-    </ChakraProvider>
+    <>
+      <ChakraProvider theme={extendedTheme}>
+        <SWRConfig value={{ fetcher }}>
+          <Header />
+          <VStack as="main" flex={1} minHeight={"calc(100vh - 100px - 100px)"}>
+            <Component {...pageProps} />
+          </VStack>
+          <Footer />
+        </SWRConfig>
+      </ChakraProvider>
+      <Analytics />
+    </>
   );
 }
 
