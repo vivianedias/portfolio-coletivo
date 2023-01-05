@@ -7,6 +7,10 @@ import {
   VStack,
   Highlight,
   Stack,
+  Wrap,
+  Flex,
+  Grid,
+  GridItem,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
@@ -60,9 +64,77 @@ function ImageWithBorder({ src, alt }) {
         mb={4}
       />
       <Window>
-        <Image src={src} alt={alt} boxSize={"100%"} position={"absolute"} />
+        <Image
+          src={src}
+          alt={alt}
+          w={"100%"}
+          maxH={"240px"}
+          h={"100%"}
+          position={"absolute"}
+        />
       </Window>
     </Box>
+  );
+}
+
+const PROJECTS_ITEMS = (t, locale) => [
+  {
+    img: {
+      alt: t("institutoAurora.alt"),
+      src: `/img/instituto-aurora-${locale}.png`,
+    },
+    title: t("institutoAurora.title"),
+    description: t("institutoAurora.description"),
+    query: [
+      "Panorama da Educação em Direitos Humanos no Brasil",
+      "Educational Panel of Human Rights",
+    ],
+  },
+  {
+    img: {
+      src: `/img/me-representa.png`,
+      alt: t("meRepresenta.alt"),
+    },
+    title: t("meRepresenta.title"),
+    description: t("meRepresenta.description"),
+    query: "#MeRepresenta",
+  },
+  {
+    img: {
+      src: `/img/hacking-vigilance-${locale}.png`,
+      alt: t("hackingVigilance.alt"),
+    },
+    title: t("hackingVigilance.title"),
+    description: t("hackingVigilance.description"),
+    query: ["Hacking Vigilance", "Hackeando a vigilância"],
+  },
+];
+
+function ProjectItem({ title, description, query, img }) {
+  return (
+    <GridItem key={title}>
+      <VStack align={"flex-start"} spacing={{ base: 6, md: 12 }} flex={"1 1 0"}>
+        <ImageWithBorder src={img.src} alt={img.alt} />
+        <Box maxW={"100%"}>
+          <Heading
+            color={useColorModeValue("gray.900", "gray.200")}
+            size={"2xl"}
+            as={"p"}
+            whiteSpace={{ base: "normal", xl: "nowrap" }}
+          >
+            {title}
+          </Heading>
+          <Text fontWeight={400} fontSize={"xl"} mt={5}>
+            <Highlight
+              query={query}
+              styles={{ px: "2", py: "1", bg: "purple.100" }}
+            >
+              {description}
+            </Highlight>
+          </Text>
+        </Box>
+      </VStack>
+    </GridItem>
   );
 }
 
@@ -78,63 +150,12 @@ export default function Projects({ locale }) {
       >
         {t("title")}
       </Heading>
-      <Stack direction={{ base: "column", md: "row" }} spacing={10}>
-        <VStack
-          align={"flex-start"}
-          spacing={{ base: 6, md: 12 }}
-          flex={"1 1 0"}
-        >
-          <ImageWithBorder
-            src={`/img/me-representa.png`}
-            alt={t("meRepresenta.alt")}
-          />
-          <Box>
-            <Heading
-              color={useColorModeValue("gray.900", "gray.200")}
-              size={"2xl"}
-              as={"p"}
-            >
-              {t("meRepresenta.title")}
-            </Heading>
-            <Text fontWeight={400} fontSize={"xl"} mt={5}>
-              <Highlight
-                query={"#MeRepresenta"}
-                styles={{ px: "2", py: "1", bg: "purple.100" }}
-              >
-                {t("meRepresenta.description")}
-              </Highlight>
-            </Text>
-          </Box>
-        </VStack>
-        <VStack
-          align={"flex-start"}
-          spacing={{ base: 6, md: 12 }}
-          flex={"1 1 0"}
-        >
-          <ImageWithBorder
-            src={`/img/hacking-vigilance-${locale}.png`}
-            alt={t("hackingVigilance.alt")}
-          />
-          <Box>
-            <Heading
-              color={useColorModeValue("gray.900", "gray.200")}
-              size={"2xl"}
-              as={"p"}
-              whiteSpace={{ base: "normal", xl: "nowrap" }}
-            >
-              {t("hackingVigilance.title")}
-            </Heading>
-            <Text fontWeight={400} fontSize={"xl"} mt={5}>
-              <Highlight
-                query={["Hacking Vigilance", "Hackeando a vigilância"]}
-                styles={{ px: "2", py: "1", bg: "purple.100" }}
-              >
-                {t("hackingVigilance.description")}
-              </Highlight>
-            </Text>
-          </Box>
-        </VStack>
-      </Stack>
+      <Grid
+        gap={10}
+        templateColumns={{ base: "calc(100vw - 80px)", xl: "repeat(2, 600px)" }}
+      >
+        {PROJECTS_ITEMS(t, locale).map(ProjectItem)}
+      </Grid>
     </SectionLayout>
   );
 }
