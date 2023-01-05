@@ -122,7 +122,9 @@ function ProjectItem({ title, description, query, img, link }) {
         spacing={{ base: 6, md: 12 }}
         flex={"1 1 0"}
       >
-        <ImageWithBorder src={img.src} alt={img.alt} />
+        <Link href={link} isExternal>
+          <ImageWithBorder src={img.src} alt={img.alt} />
+        </Link>
         <Box maxW={"100%"}>
           <Heading
             color={useColorModeValue("gray.900", "gray.200")}
