@@ -11,6 +11,7 @@ import {
   Flex,
   Grid,
   GridItem,
+  Link,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
@@ -89,6 +90,7 @@ const PROJECTS_ITEMS = (t, locale) => [
       "Panorama da Educação em Direitos Humanos no Brasil",
       "Educational Panel of Human Rights",
     ],
+    link: "https://panorama-edh.institutoaurora.org/",
   },
   {
     img: {
@@ -98,6 +100,7 @@ const PROJECTS_ITEMS = (t, locale) => [
     title: t("meRepresenta.title"),
     description: t("meRepresenta.description"),
     query: "#MeRepresenta",
+    link: "https://app.merepresenta.org.br/",
   },
   {
     img: {
@@ -107,14 +110,21 @@ const PROJECTS_ITEMS = (t, locale) => [
     title: t("hackingVigilance.title"),
     description: t("hackingVigilance.description"),
     query: ["Hacking Vigilance", "Hackeando a vigilância"],
+    link: "https://hacking-vigilance.vercel.app/pt-BR",
   },
 ];
 
-function ProjectItem({ title, description, query, img }) {
+function ProjectItem({ title, description, query, img, link }) {
   return (
     <GridItem key={title}>
-      <VStack align={"flex-start"} spacing={{ base: 6, md: 12 }} flex={"1 1 0"}>
-        <ImageWithBorder src={img.src} alt={img.alt} />
+      <VStack
+        align={"flex-start"}
+        spacing={{ base: 6, md: 12 }}
+        flex={"1 1 0"}
+      >
+        <Link href={link} isExternal>
+          <ImageWithBorder src={img.src} alt={img.alt} />
+        </Link>
         <Box maxW={"100%"}>
           <Heading
             color={useColorModeValue("gray.900", "gray.200")}
@@ -122,8 +132,11 @@ function ProjectItem({ title, description, query, img }) {
             as={"p"}
             whiteSpace={{ base: "normal", xl: "nowrap" }}
           >
-            {title}
+            <Link href={link} isExternal>
+              {title}
+            </Link>
           </Heading>
+
           <Text fontWeight={400} fontSize={"xl"} mt={5}>
             <Highlight
               query={query}
@@ -152,7 +165,10 @@ export default function Projects({ locale }) {
       </Heading>
       <Grid
         gap={10}
-        templateColumns={{ base: "calc(100vw - 80px)", xl: "repeat(2, 600px)" }}
+        templateColumns={{
+          base: "calc(100vw - 80px)",
+          xl: "repeat(2, 600px)",
+        }}
       >
         {PROJECTS_ITEMS(t, locale).map(ProjectItem)}
       </Grid>
