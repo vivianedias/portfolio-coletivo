@@ -117,11 +117,7 @@ const PROJECTS_ITEMS = (t, locale) => [
 function ProjectItem({ title, description, query, img, link }) {
   return (
     <GridItem key={title}>
-      <VStack
-        align={"flex-start"}
-        spacing={{ base: 6, md: 12 }}
-        flex={"1 1 0"}
-      >
+      <VStack align={"flex-start"} spacing={{ base: 6, md: 12 }} flex={"1 1 0"}>
         <Link href={link} isExternal>
           <ImageWithBorder src={img.src} alt={img.alt} />
         </Link>
@@ -140,7 +136,12 @@ function ProjectItem({ title, description, query, img, link }) {
           <Text fontWeight={400} fontSize={"xl"} mt={5}>
             <Highlight
               query={query}
-              styles={{ px: "2", py: "1", bg: "purple.100" }}
+              styles={{
+                px: "2",
+                py: "1",
+                bg: "purple.100",
+                whiteSpace: "normal",
+              }}
             >
               {description}
             </Highlight>
