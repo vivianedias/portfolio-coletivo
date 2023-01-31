@@ -81,6 +81,16 @@ function ImageWithBorder({ src, alt }) {
 const PROJECTS_ITEMS = (t, locale) => [
   {
     img: {
+      alt: t("noor.alt"),
+      src: `/img/noor.png`,
+    },
+    title: t("noor.title"),
+    description: t("noor.description"),
+    query: ["Noor"],
+    link: "https://wearenoor.org/",
+  },
+  {
+    img: {
       alt: t("institutoAurora.alt"),
       src: `/img/instituto-aurora-${locale}.png`,
     },
@@ -117,7 +127,11 @@ const PROJECTS_ITEMS = (t, locale) => [
 function ProjectItem({ title, description, query, img, link }) {
   return (
     <GridItem key={title}>
-      <VStack align={"flex-start"} spacing={{ base: 6, md: 12 }} flex={"1 1 0"}>
+      <VStack
+        align={"flex-start"}
+        spacing={{ base: 6, md: 12 }}
+        flex={"1 1 0"}
+      >
         <Link href={link} isExternal>
           <ImageWithBorder src={img.src} alt={img.alt} />
         </Link>
