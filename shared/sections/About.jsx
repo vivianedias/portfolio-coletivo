@@ -12,6 +12,7 @@ import { useTranslation } from "next-i18next";
 import { SectionLayout, Image } from "../components";
 import vivianeImg from "../../public/img/viviane.png";
 import camilaImg from "../../public/img/camila.png";
+import gabrielaImg from "../../public/img/gabriela.png";
 
 function AboutSection({
   name,
@@ -20,8 +21,9 @@ function AboutSection({
   imageAlt,
   githubProfile,
   linkedinProfile,
-  curriculumLink,
 }) {
+  const hoverColor = useColorModeValue("purple.700", "white");
+  const linkColor = useColorModeValue("gray.900", "gray.200");
   return (
     <Stack
       spacing={{ base: 4, md: 10 }}
@@ -54,32 +56,33 @@ function AboutSection({
               {position}
             </Text>
           </Box>
-
           <VStack
             order={{ base: 3, md: 2 }}
             spacing={1}
             alignItems={"flex-start"}
           >
+            {githubProfile ? (
+              <Link
+                _hover={{
+                  color: hoverColor,
+                }}
+                color={linkColor}
+                href={githubProfile}
+                textTransform="uppercase"
+                textDecoration={"underline"}
+                fontWeight={600}
+                fontSize={{ base: "sm", md: "md" }}
+                target={"_blank"}
+                rel="noopener noreferrer"
+              >
+                Github
+              </Link>
+            ) : null}
             <Link
               _hover={{
-                color: useColorModeValue("purple.700", "white"),
+                color: hoverColor,
               }}
-              color={useColorModeValue("gray.900", "gray.200")}
-              href={githubProfile}
-              textTransform="uppercase"
-              textDecoration={"underline"}
-              fontWeight={600}
-              fontSize={{ base: "sm", md: "md" }}
-              target={"_blank"}
-              rel="noopener noreferrer"
-            >
-              Github
-            </Link>
-            <Link
-              _hover={{
-                color: useColorModeValue("purple.700", "white"),
-              }}
-              color={useColorModeValue("gray.900", "gray.200")}
+              color={linkColor}
               href={linkedinProfile}
               textTransform="uppercase"
               textDecoration={"underline"}
@@ -89,22 +92,6 @@ function AboutSection({
               rel="noopener noreferrer"
             >
               Linkedin
-            </Link>
-            <Link
-              _hover={{
-                color: useColorModeValue("purple.700", "white"),
-              }}
-              color={useColorModeValue("gray.900", "gray.200")}
-              href={curriculumLink}
-              textTransform="uppercase"
-              textDecoration={"underline"}
-              fontWeight={600}
-              fontSize={{ base: "sm", md: "md" }}
-              target={"_blank"}
-              rel="noopener noreferrer"
-              download
-            >
-              CV
             </Link>
           </VStack>
         </VStack>
@@ -140,7 +127,6 @@ export default function About() {
         imageAlt={t("viviane.imageAlt")}
         githubProfile={"https://github.com/vivianedias"}
         linkedinProfile={"https://linkedin.com/in/viviane-p-dias"}
-        curriculumLink={"/files/CV_Viviane_Dias_EN.pdf"}
       />
       <AboutSection
         name={"Camila Cardoso"}
@@ -149,7 +135,13 @@ export default function About() {
         imageAlt={t("camila.imageAlt")}
         githubProfile={"https://github.com/camilacrdoso"}
         linkedinProfile={"https://www.linkedin.com/in/camilacrdoso/"}
-        curriculumLink={"#"}
+      />
+      <AboutSection
+        name={"Gabriela Recher"}
+        position={t("gabriela.position")}
+        image={gabrielaImg}
+        imageAlt={t("gabriela.imageAlt")}
+        linkedinProfile={"http://linkedin.com/in/gabrielarecher/"}
       />
     </SectionLayout>
   );

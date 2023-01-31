@@ -7,5 +7,9 @@
   "viviane": {
     "position": "Senior Developer",
     "imageAlt": "Profile photo of Viviane"
+  },
+  "gabriela": {
+    "position": "UX/UI Designer",
+    "imageAlt": "Profile photo of Gabriela"
   }
 }
