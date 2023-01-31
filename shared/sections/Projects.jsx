@@ -161,6 +161,7 @@ export default function Projects({ locale }) {
         textTransform={"uppercase"}
         color={useColorModeValue("purple.700", "brand.secondary")}
         fontSize={"xl"}
+        pt={{ base: 5, md: 20 }}
       >
         {t("title")}
       </Heading>
