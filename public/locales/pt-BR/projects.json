@@ -1,23 +1,33 @@
 {
-  "title": "Projetos",
-  "meRepresenta": {
-    "title": "#MeRepresenta",
-    "description": "Nós construimos o app #MeRepresenta que opera como um espaço de encontro digital entre candidatas/os e eleitoras/es que priorizam as mesmas pautas que você.",
-    "alt": "Captura de tela de início do app #MeRepresenta"
-  },
-  "hackingVigilance": {
-    "title": "Hackeando a Vigilância",
-    "description": "Hackeando a Vigilância é uma plataforma informativa sobre boas práticas de segurança digital, que busca compartilhar conhecimentos e ferramentas que aumentem sua segurança pessoal online.",
-    "alt": "Captura de tela de início do site Hackeando a Vigilância"
-  },
-  "institutoAurora": {
-    "title": "Instituto Aurora",
-    "description": "O Panorama da Educação em Direitos Humanos no Brasil é um infográfico interativo que apresenta o cenário de como a institucionalização da Educação em Direitos Humanos (EDH) no Brasil foi afetada pelas decisões tomadas no mandato presidencial de Jair Bolsonaro e pelos governos estaduais.",
-    "alt": "Captura de tela de início do site 'Panorama da Educação em Direitos Humanos no Brasil - Instituto Aurora'"
-  },
-  "noor": {
-    "title": "Noor",
-    "description": "Noor é uma organização feminista global que se dedica a impulsionar a justiça entre os gêneros e movimentos progressistas para barrar as agendas de ultra direita e avançar visões transformadoras.",
-    "alt": "Captura de tela de início do site 'Noor'"
-  }
+	"title": "Projetos",
+	"meRepresenta": {
+		"title": "#MeRepresenta",
+		"description": "Nós construimos o app #MeRepresenta que opera como um espaço de encontro digital entre candidatas/os e eleitoras/es que priorizam as mesmas pautas que você.",
+		"alt": "Captura de tela de início do app #MeRepresenta"
+	},
+	"hackingVigilance": {
+		"title": "Hackeando a Vigilância",
+		"description": "Hackeando a Vigilância é uma plataforma informativa sobre boas práticas de segurança digital, que busca compartilhar conhecimentos e ferramentas que aumentem sua segurança pessoal online.",
+		"alt": "Captura de tela de início do site Hackeando a Vigilância"
+	},
+	"institutoAurora": {
+		"title": "Instituto Aurora",
+		"description": "O Panorama da Educação em Direitos Humanos no Brasil é um infográfico interativo que apresenta o cenário de como a institucionalização da Educação em Direitos Humanos (EDH) no Brasil foi afetada pelas decisões tomadas no mandato presidencial de Jair Bolsonaro e pelos governos estaduais.",
+		"alt": "Captura de tela de início do site 'Panorama da Educação em Direitos Humanos no Brasil - Instituto Aurora'"
+	},
+	"noor": {
+		"title": "Noor",
+		"description": "Noor é uma organização feminista global que se dedica a impulsionar a justiça entre os gêneros e movimentos progressistas para barrar as agendas de ultra direita e avançar visões transformadoras.",
+		"alt": "Captura de tela de início do site 'Noor'"
+	},
+	"fairshare": {
+		"title": "Feminist Leadership Hub",
+		"description": "O Feminist Leadership Hub é uma plataforma virtual de aprendizado coletivo, comunitária e focada em Lideranças Feministas. É um espaço onde profissionais da sociedade civil podem compartilhar e acessar recursos, trocar experiências e ideias, e se conectar com colegas de sua região ou que trabalham em temas semelhantes.",
+		"alt": "Captura de tela de início do site 'Feminist Leadership Hub'"
+	},
+	"iana": {
+		"title": "IAna",
+		"description": "IAna é uma chatbot desenvolvido em colaboração com o Mapa do Acolhimento e a Fundação Bill & Melinda Gates. A IAna responde às perguntas das usuárias, oferecendo suporte e orientações confiáveis sobre como oferecer apoio a vítimas de violência de gênero no Brasil.",
+		"alt": "Captura de tela da página de chat do site da 'IAna'"
+	}
 }

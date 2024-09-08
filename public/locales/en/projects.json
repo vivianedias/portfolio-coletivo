@@ -1,23 +1,33 @@
 {
-  "title": "Projects",
-  "meRepresenta": {
-    "title": "#MeRepresenta",
-    "description": "This platform operates as a digital space where candidates and voters that have the same priorities can meet.",
-    "alt": "Screenshot of the homepage from #MeRepresenta app"
-  },
-  "hackingVigilance": {
-    "title": "Hacking Vigilance",
-    "description": "Hacking Vigilance is an informative platform about digital security best practices, where we suggest tools and spread knowldge that could help increase your digital security online.",
-    "alt": "Screenshot of the homepage from Hacking Vigilance website"
-  },
-  "institutoAurora": {
-    "title": "Instituto Aurora",
-    "description": "The Panorama of Education in Human Rights in Brazil is an interactive infographic that presents the scenario of how the institutionalization of Education in Human Rights (HRE) in Brazil was affected by the decisions taken in the presidential term of Jair Bolsonaro and by the state governments.",
-    "alt": "Screenshot of the homepage from 'Panorama da Educação em Direitos Humanos no Brasil - Instituto Aurora' website"
-  },
-  "noor": {
-    "title": "Noor",
-    "description": "Noor is a global feminist and movement-driven think and do tank, devoted to building the power of gender justice and progressive movements to obstruct far right agendas, and advance our transformative visions.",
-    "alt": "Screenshot of the homepage from 'Noor' website"
-  }
+	"title": "Projects",
+	"meRepresenta": {
+		"title": "#MeRepresenta",
+		"description": "This platform operates as a digital space where candidates and voters that have the same priorities can meet.",
+		"alt": "Screenshot of the homepage from #MeRepresenta app"
+	},
+	"hackingVigilance": {
+		"title": "Hacking Vigilance",
+		"description": "Hacking Vigilance is an informative platform about digital security best practices, where we suggest tools and spread knowldge that could help increase your digital security online.",
+		"alt": "Screenshot of the homepage from Hacking Vigilance website"
+	},
+	"institutoAurora": {
+		"title": "Instituto Aurora",
+		"description": "The Panorama of Education in Human Rights in Brazil is an interactive infographic that presents the scenario of how the institutionalization of Education in Human Rights (HRE) in Brazil was affected by the decisions taken in the presidential term of Jair Bolsonaro and by the state governments.",
+		"alt": "Screenshot of the homepage from 'Panorama da Educação em Direitos Humanos no Brasil - Instituto Aurora' website"
+	},
+	"noor": {
+		"title": "Noor",
+		"description": "Noor is a global feminist and movement-driven think and do tank, devoted to building the power of gender justice and progressive movements to obstruct far right agendas, and advance our transformative visions.",
+		"alt": "Screenshot of the homepage from 'Noor' website"
+	},
+	"fairshare": {
+		"title": "Feminist Leadership Hub",
+		"description": "The Feminist Leadership Hub is a virtual, community-driven, peer learning platform centred around Feminist Leadership. It’s a space where civil society practitioners can share and access resources, exchange experiences and ideas, and connect with peers in their region or working on similar topics. ",
+		"alt": "Screenshot of the homepage from 'Feminist Leadership Hub' website"
+	},
+	"iana": {
+		"title": "IAna",
+		"description": "IAna is an AI-powered chatbot developed in collaboration with Mapa do Acolhimento and the Bill & Melinda Gates Foundation, IAna answers user questions, offering reliable support and guidance on how to offer guidance to GBV victims in Brazil.",
+		"alt": "Screenshot of the chat page from 'IAna' website"
+	}
 }
